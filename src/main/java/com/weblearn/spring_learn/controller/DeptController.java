@@ -4,12 +4,9 @@ import com.weblearn.spring_learn.pojo.Dept;
 import com.weblearn.spring_learn.pojo.Result;
 import com.weblearn.spring_learn.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -31,5 +28,20 @@ public class DeptController {
         log.info("查询全部部门数据");
         List<Dept> deptList = deptService.deptlist();
         return Result.success(deptList);
+    }
+
+    //删除表中数据
+    @RequestMapping("/depts/{id}")
+    public Result deleteDept(@PathVariable("id") Integer id) {
+        log.info("删除部门数据");
+        deptService.deleteDept(id);
+        return Result.success(null);
+    }
+
+    @PostMapping("/depts")
+    public Result insertDept(@RequestBody Dept dept){
+        log.info("插入部门数据");
+        deptService.insertDept(dept);
+        return Result.success();
     }
 }
