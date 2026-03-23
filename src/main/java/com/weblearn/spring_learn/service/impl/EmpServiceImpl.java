@@ -1,4 +1,7 @@
 package com.weblearn.spring_learn.service.impl;
 
-public class EmpServiceImpl {
+import com.weblearn.spring_learn.service.EmpService;
+
+public class EmpServiceImpl implements EmpService {
+
 }
