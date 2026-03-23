@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Slf4j
-@RestController(value = "/dept")
+@RestController
+@RequestMapping("/depts")
 public class DeptController {
     private Integer id;
     private String name;
@@ -23,7 +24,7 @@ public class DeptController {
 
 
     //@RequestMapping(value = "/depts", method= RequestMethod.GET)用一个注解代替@RequestMapping
-    @GetMapping("/depts")
+    @GetMapping
     public Result deptlist() {
         log.info("查询全部部门数据");
         List<Dept> deptList = deptService.deptlist();
@@ -31,17 +32,32 @@ public class DeptController {
     }
 
     //删除表中数据
-    @RequestMapping("/depts/{id}")
+    @RequestMapping("/{id}")
     public Result deleteDept(@PathVariable("id") Integer id) {
         log.info("删除部门数据");
         deptService.deleteDept(id);
         return Result.success(null);
     }
 
-    @PostMapping("/depts")
+    @PostMapping
     public Result insertDept(@RequestBody Dept dept){
         log.info("插入部门数据");
         deptService.insertDept(dept);
         return Result.success();
     }
+
+    @GetMapping("/selectById/{id}")
+    public Result selectById(@PathVariable(value = "id") Integer id){
+        log.info("根据id查询部门数据");
+        Dept dept = deptService.selectById(id);
+        return Result.success(dept);
+    }
+    @PostMapping("/updateById/{id}")
+    public Result updateById(@RequestBody Dept dept,@PathVariable(value = "id") Integer id){
+        log.info("根据id更新部门数据");
+        deptService.updateById(id,dept);
+        return Result.success();
+    }
+
+
 }

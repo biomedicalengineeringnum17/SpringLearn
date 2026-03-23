@@ -1,10 +1,7 @@
 package com.weblearn.spring_learn.mapper;
 
 import com.weblearn.spring_learn.pojo.Dept;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,5 +17,13 @@ public interface DeptMapper {
             "values " +
             "(#{name},#{createTime},#{updateTime})")
     void insert(Dept dept);
+
+    @Select("select * from dept where id = #{id}")
+    Dept selectById(Integer id);
+
+
+    @Update("update dept set name=#{dept.name}, update_time=#{dept.updateTime},create_time = #{dept.createTime}" +
+            "where id = #{id}")
+    void updateById(@Param("id") Integer id, @Param("dept") Dept dept);
 }
 
