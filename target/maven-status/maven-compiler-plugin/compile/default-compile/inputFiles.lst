@@ -4,6 +4,7 @@ D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\m
 D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\mapper\EmpMapper.java
 D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\pojo\Dept.java
 D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\pojo\Emp.java
+D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\pojo\PageBean.java
 D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\pojo\Result.java
 D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\service\DeptService.java
 D:\Projects\Java_projects\spring_learn\src\main\java\com\weblearn\spring_learn\service\EmpService.java
